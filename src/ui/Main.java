@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 /**
- * Clase que contiene el método main y la lógica principal del programa.
+ * Class containing the main method and the main logic of the program.
  */
 public class Main {
 
@@ -33,15 +33,15 @@ public class Main {
         while (!stopFlag) {
 
             System.out.println("\nDigite una opcion");
-            System.out.println("1. Registrar un usuario");
-            System.out.println("2. Registrar, modificar o eliminar un producto bibliografico");
-            System.out.println("3. Generar libro");
-            System.out.println("4. Generar revista");
-            System.out.println("5. Generar usuario regular");
-            System.out.println("6. Generar usuario premium");
-            System.out.println("7. Comprar libro");
-            System.out.println("8. Suscribirse a una revista");
-            System.out.println("0. Salir");
+            System.out.println("1. Register a user");
+            System.out.println("2. Registering, modifying or deleting a bibliographic product");
+            System.out.println("3. Generate book");
+            System.out.println("4. Generate magazine");
+            System.out.println("5. Generate regular user");
+            System.out.println("6. Generate premium user");
+            System.out.println("7. Buy book");
+            System.out.println("8. Subscribe to a magazine");
+            System.out.println("0. Exit");
 
             int mainOption = reader.nextInt();
             reader.nextLine();
@@ -49,13 +49,13 @@ public class Main {
             switch (mainOption) {
 
                 case 1:
-                    System.out.println("Nombre");
+                    System.out.println("Name");
                     String name = reader.nextLine();
 
-                    System.out.println("Cedula");
+                    System.out.println("Id");
                     String id = reader.nextLine();
 
-                    System.out.println("Escribe premium si el usuario es de categoria premium o regular si el usuario es de categoria regu;lar");
+                    System.out.println("Type premium if the user is a premium category user or regular if the user is a regular category user.");
                     String premium = reader.nextLine();
 
                     boolean togglePremium;
@@ -87,29 +87,29 @@ public class Main {
                     library.generatePremiumUser();
                     break;
                 case 7:
-                    System.out.println("identificador del usuario");
+                    System.out.println("user identifier");
                     String userIdB = reader.nextLine();
 
-                    System.out.println("identificador del libro");
+                    System.out.println("book identifier");
                     String bookIdB = reader.nextLine();
 
                     library.buyBook(bookIdB, userIdB);
                     break;
                 case 8:
-                    System.out.println("identificador del usuario");
+                    System.out.println("user identifier");
                     String userIdM = reader.nextLine();
 
-                    System.out.println("identificador de la revista");
+                    System.out.println("magazine identifier");
                     String magazineIdM = reader.nextLine();
 
                     library.subscribeMagazine(magazineIdM, userIdM);
                     break;
                 case 0:
-                    System.out.println("Gracias por usar el sistema");
+                    System.out.println("Thank you for using the system, have a nice day");
                     stopFlag = true;
                     break;
                 default:
-                    System.out.println("Por favor digite una opcion valida");
+                    System.out.println("Please enter a valid option");
                     break;
 
             }
@@ -126,11 +126,11 @@ public class Main {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
         do{
-            System.out.println("\n1. crear libro");
-            System.out.println("2. modificar libro");
-            System.out.println("3. crear revista");
-            System.out.println("4. modificar revista");
-            System.out.println("5. borrar producto bibliografico");
+            System.out.println("\n1. create book");
+            System.out.println("2. modify book");
+            System.out.println("3. create magazine");
+            System.out.println("4. modify magazine");
+            System.out.println("5. delete bibliographic product");
 
             mainOption = reader.nextInt();
             reader.nextLine();
@@ -140,13 +140,13 @@ public class Main {
                 case 1:
                     String [] infoB = infoBibliographicProduct();
 
-                    System.out.println("Reseña");
+                    System.out.println("Review");
                     String review = reader.nextLine();
 
-                    System.out.println("Genero");
+                    System.out.println("Genre");
                     String genre = reader.nextLine();
 
-                    System.out.println("Nombre");
+                    System.out.println("Name");
                     int saleValue = reader.nextInt();
                     reader.nextLine();
 
@@ -160,14 +160,14 @@ public class Main {
                 case 3:
                     String [] infoM = infoBibliographicProduct();
 
-                    System.out.println("Reseña");
+                    System.out.println("Review");
                     String category = reader.nextLine();
 
-                    System.out.println("Genero");
+                    System.out.println("Genre");
                     int subscriptionValue = reader.nextInt();
                     reader.nextLine();
 
-                    System.out.println("Nombre");
+                    System.out.println("Name");
                     String emissionPeriodicity = reader.nextLine();
 
                     Date publishingDateM = format.parse(infoM[3]);
@@ -179,12 +179,12 @@ public class Main {
                     modifyMagazine();
                     break;
                 case 5:
-                    System.out.println("identificador del producto bibliografico");
+                    System.out.println("bibliographic product identifier");
                     String bpId = reader.nextLine();
                     library.deleteBibliographicProduct(bpId);
                     break;
                 default:
-                    System.out.println("Por favor digite una opcion valida");
+                    System.out.println("Please enter a valid option");
                     break;
 
             }
@@ -198,16 +198,16 @@ public class Main {
     public String [] infoBibliographicProduct(){
         String [] info = new String[4];
 
-        System.out.println("Identificador");
+        System.out.println("Id");
         info[0] = reader.nextLine();
 
-        System.out.println("Nombre");
+        System.out.println("Name");
         info[1] = reader.nextLine();
 
-        System.out.println("Numero de paginas");
+        System.out.println("Number of pages");
         info[2] = reader.nextLine();
 
-        System.out.println("Fecha de publicacion (formato(dd/MM/yyyy))");
+        System.out.println("Date of publication (format(dd/MM/yyyy))");
         info[3] = reader.nextLine();
 
         return info;
@@ -221,25 +221,25 @@ public class Main {
         Book book;
 
         do{
-            System.out.println("Inserta el identificador del libro");
+            System.out.println("Inserts the book identifier");
             String bookId = reader.nextLine();
             book = (Book) library.findBibliographicProduct(bookId);
             if(book != null){
                 stopFlag = false;
             } else {
-                System.out.println("\nid incorrecto");
+                System.out.println("\nincorrect id");
             }
         } while(stopFlag);
 
         do{
-            System.out.println("\n¿Que quieres modificar?");
+            System.out.println("\nWhat do you want to modify?");
             System.out.println("1. id");
-            System.out.println("2. Nombre");
-            System.out.println("3. Numero de paginas");
-            System.out.println("4. Fecha de publicacion");
-            System.out.println("5. Reseña");
-            System.out.println("6. Genero");
-            System.out.println("7. Valor de venta");
+            System.out.println("2. Name");
+            System.out.println("3. Number of pages");
+            System.out.println("4. Date of publication");
+            System.out.println("5. Review");
+            System.out.println("6. Genre");
+            System.out.println("7. Sales value");
 
             mainOption = reader.nextInt();
             reader.nextLine();
@@ -247,24 +247,24 @@ public class Main {
             switch (mainOption) {
 
                 case 1:
-                    System.out.println("Nuevo id");
+                    System.out.println("New id");
                     String id = reader.nextLine();
                     book.setId(id);
                     break;
                 case 2:
-                    System.out.println("Nuevo nombre");
+                    System.out.println("New name");
                     String name = reader.nextLine();
                     book.setName(name);
                     break;
                 case 3:
-                    System.out.println("Nuevo numero de paginas");
+                    System.out.println("New number of pages");
                     int totalPages = reader.nextInt();
                     reader.nextLine();
                     book.setTotalPages(totalPages);
                     break;
                 case 4:
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                    System.out.println("Nueva fecha de publicación (formato(dd/MM/yyyy))");
+                    System.out.println("New publication date (format(dd/MM/yyyy))");
                     String publishingDate = reader.nextLine();
                     try {
                         Date date = format.parse(publishingDate);
@@ -274,23 +274,23 @@ public class Main {
                     }
                     break;
                 case 5:
-                    System.out.println("Nueva reseña");
+                    System.out.println("New review");
                     String review = reader.nextLine();
                     book.setReview(review);
                     break;
                 case 6:
-                    System.out.println("Nuevo genero");
+                    System.out.println("Nuevo genre");
                     String genre = reader.nextLine();
                     book.setGenre(Book.Genre.valueOf(genre));
                     break;
                 case 7:
-                    System.out.println("Nuevo valor de venta");
+                    System.out.println("New sales value");
                     int saleValue = reader.nextInt();
                     reader.nextLine();
                     book.setSaleValue(saleValue);
                     break;
                 default:
-                    System.out.println("Por favor digite una opcion valida");
+                    System.out.println("Please enter a valid option");
                     break;
 
             }
@@ -306,25 +306,25 @@ public class Main {
         Magazine magazine;
 
         do{
-            System.out.println("Inserta el identificador de la revista");
+            System.out.println("Insert the magazine identifier");
             String bookId = reader.nextLine();
             magazine = (Magazine) library.findBibliographicProduct(bookId);
             if(magazine != null){
                 stopFlag = false;
             } else {
-                System.out.println("\nid incorrecto");
+                System.out.println("\nincorrect id");
             }
         } while(stopFlag);
 
         do{
-            System.out.println("\n¿Que quieres modificar?");
+            System.out.println("\nWhat do you want to modify?");
             System.out.println("1. id");
-            System.out.println("2. Nombre");
-            System.out.println("3. Numero de paginas");
-            System.out.println("4. Fecha de publicacion");
-            System.out.println("5. Categoria");
-            System.out.println("6. Valor de suscripción");
-            System.out.println("7. Periodicidad de Emision");
+            System.out.println("2. Name");
+            System.out.println("3. Number of pages");
+            System.out.println("4. Date of publication");
+            System.out.println("5. Category");
+            System.out.println("6. Subscription value");
+            System.out.println("7. Periodicity of Issuance");
 
             mainOption = reader.nextInt();
             reader.nextLine();
@@ -332,24 +332,24 @@ public class Main {
             switch (mainOption) {
 
                 case 1:
-                    System.out.println("Nuevo id");
+                    System.out.println("New id");
                     String id = reader.nextLine();
                     magazine.setId(id);
                     break;
                 case 2:
-                    System.out.println("Nuevo nombre");
+                    System.out.println("New name");
                     String name = reader.nextLine();
                     magazine.setName(name);
                     break;
                 case 3:
-                    System.out.println("Nuevo numero de paginas");
+                    System.out.println("New number of pages");
                     int totalPages = reader.nextInt();
                     reader.nextLine();
                     magazine.setTotalPages(totalPages);
                     break;
                 case 4:
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                    System.out.println("Nueva fecha de publicación (formato(dd/MM/yyyy))");
+                    System.out.println("New publication date (format(dd/MM/yyyy))");
                     String publishingDate = reader.nextLine();
                     try {
                         Date date = format.parse(publishingDate);
@@ -359,23 +359,23 @@ public class Main {
                     }
                     break;
                 case 5:
-                    System.out.println("Nueva categoria");
+                    System.out.println("New category");
                     String category = reader.nextLine();
                     magazine.setCategory(Magazine.Category.valueOf(category));
                     break;
                 case 6:
-                    System.out.println("Nuevo valor de suscripción");
+                    System.out.println("New subscription value");
                     int subscriptionValue = reader.nextInt();
                     reader.nextLine();
                     magazine.setSubscriptionValue(subscriptionValue);
                     break;
                 case 7:
-                    System.out.println("Nueva periodicidad de emision");
+                    System.out.println("New broadcasting periodicity");
                     String emissionPeriodicity = reader.nextLine();
                     magazine.setEmissionPeriodicity(emissionPeriodicity);
                     break;
                 default:
-                    System.out.println("Por favor digite una opcion valida");
+                    System.out.println("Please enter a valid option");
                     break;
 
             }
@@ -394,12 +394,12 @@ It contains information about the book he/she is reading, his/her progress in th
         int page = 1;
 
         do{
-            System.out.println("Sesion de lectura en progreso");
-            System.out.println("\nLeyendo: " + bibliographicProduct.getName());
-            System.out.println("\nLeyendo pagina " + page + " de " + bibliographicProduct.getTotalPages());
-            System.out.println("\nDigite A para ir a la anterior pagina");
-            System.out.println("\nDigite S para ir a la siguiente pagina");
-            System.out.println("\nDigite B para volver a la Biblioteca");
+            System.out.println("Reading session in progress");
+            System.out.println("\nReading: " + bibliographicProduct.getName());
+            System.out.println("\nReading page " + page + " of " + bibliographicProduct.getTotalPages());
+            System.out.println("\nType A to go to the previous page");
+            System.out.println("\nType S to go to the next page");
+            System.out.println("\nEnter B to return to the Library");
             option = reader.nextLine();
 
             if (option.equalsIgnoreCase("A")){

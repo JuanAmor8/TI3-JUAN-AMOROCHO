@@ -6,7 +6,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-
+/**
+ * Clase que contiene el método main y la lógica principal del programa.
+ */
 public class Main {
 
     public Scanner reader;
@@ -21,7 +23,9 @@ public class Main {
         reader = new Scanner(System.in);
         library = new Library();
     }
-
+/**
+ * Displays the main menu of the program and executes the corresponding actions according to the option selected by the user.
+ */
     public void showMainMenu() {
 
         boolean stopFlag = false;
@@ -113,7 +117,10 @@ public class Main {
         }
 
     }
-
+/**
+ * Displays the menu for registering, modifying or deleting a bibliographic product and executes the corresponding actions according to the option selected by the user.
+ * @throws ParseException if there is an error parsing the publication date of the bibliographic product.
+ */
     public void registerModifyDeleteBibliographicProduct() throws ParseException {
         int mainOption;
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -184,7 +191,10 @@ public class Main {
 
         } while (mainOption < 1 || mainOption > 5);
     }
-
+/**
+ * Requests the user the necessary data to register a bibliographic product and returns them in an array of Strings.
+ * @return String array with the data entered by the user in the following order: Identifier, Name, Number of pages, Date of publication.
+ */
     public String [] infoBibliographicProduct(){
         String [] info = new String[4];
 
@@ -202,7 +212,9 @@ public class Main {
 
         return info;
     }
-
+/**
+ * Displays the menu for modifying an existing book and executes the corresponding actions according to the option selected by the user.
+ */
     public void modifyBook(){
         int mainOption;
         boolean stopFlag = true;
@@ -285,7 +297,9 @@ public class Main {
 
         } while (mainOption < 1 || mainOption > 7);
     }
-
+/**
+ * Displays the menu for modifying an existing magazine and executes the corresponding actions according to the option selected by the user.
+ */
     public void modifyMagazine(){
         int mainOption;
         boolean stopFlag = true;
@@ -368,7 +382,10 @@ public class Main {
 
         } while (mainOption < 1 || mainOption > 7);
     }
-
+/**
+This class represents a reading session for a particular user.
+It contains information about the book he/she is reading, his/her progress in the book and other details that may be relevant.
+*/
     public void readingSession(String bibliographicProductId, String userId){
         BibliographicProduct bibliographicProduct = library.findBibliographicProduct(bibliographicProductId);
         User user = library.findUser(userId);

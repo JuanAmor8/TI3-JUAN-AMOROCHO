@@ -167,7 +167,7 @@ public class Main {
                     System.out.println("Genre");
                     String genre = reader.nextLine();
 
-                    System.out.println("Name");
+                    System.out.println("Sale value");
                     int saleValue = reader.nextInt();
                     reader.nextLine();
 
@@ -181,14 +181,14 @@ public class Main {
                 case 3:
                     String [] infoM = infoBibliographicProduct();
 
-                    System.out.println("Review");
+                    System.out.println("Category");
                     String category = reader.nextLine();
 
-                    System.out.println("Genre");
+                    System.out.println("Value of suscription");
                     int subscriptionValue = reader.nextInt();
                     reader.nextLine();
 
-                    System.out.println("Name");
+                    System.out.println("Periodicity of issuance");
                     String emissionPeriodicity = reader.nextLine();
 
                     Date publishingDateM = format.parse(infoM[3]);
@@ -425,7 +425,7 @@ public class Main {
             System.out.println("\nReading page " + page + " de " + bibliographicProduct.getTotalPages());
             System.out.println("\nType P to go to the previous page");
             System.out.println("\nType N to go to the next page");
-            System.out.println("\nType B to return to the Library");
+            System.out.println("\nType B to go back to the Library");
             option = reader.nextLine();
 
             if (option.equalsIgnoreCase("P")){

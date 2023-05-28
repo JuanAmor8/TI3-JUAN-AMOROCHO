@@ -46,4 +46,8 @@ public class Book extends BibliographicProduct{
     public int getSaleValue() {
         return saleValue;
     }
+
+    public Genre getGenre() {
+        return genre;
+    }
 }

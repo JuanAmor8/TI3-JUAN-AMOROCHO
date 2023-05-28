@@ -49,4 +49,8 @@ public class BibliographicProduct {
     public int getTotalPages() {
         return totalPages;
     }
+
+    public int getPagesRead() {
+        return pagesRead;
+    }
 }

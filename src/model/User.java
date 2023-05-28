@@ -46,6 +46,10 @@ public class User {
         this.bindingDate = bindingDate;
     }
 
+    public BibliographicProduct[][][] getPersonalLibrary() {
+        return personalLibrary;
+    }
+
     public void setPersonalLibrary(BibliographicProduct bibliographicProduct, int a, int b, int c) {
         this.personalLibrary[a][b][c] = bibliographicProduct;
     }

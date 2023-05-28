@@ -44,4 +44,8 @@ public class Magazine extends BibliographicProduct{
     public int getSubscriptionValue() {
         return subscriptionValue;
     }
+
+    public Category getCategory() {
+        return category;
+    }
 }
